@@ -5,7 +5,6 @@
     <About/>
     <Portfolio/>
     <Contact/>
-    <Footer/>
   </div>
 </template>
 
@@ -15,7 +14,6 @@ import Home from "./components/Home.vue";
 import About from "./components/About.vue";
 import Portfolio from "./components/Portfolio.vue";
 import Contact from "./components/Contact.vue";
-import Footer from "./components/Footer.vue";
 
 export default {
   name: "app",
@@ -24,8 +22,7 @@ export default {
     Home,
     About,
     Portfolio,
-    Contact,
-    Footer
+    Contact
   }
 };
 </script>
@@ -34,6 +31,20 @@ export default {
 html,
 body {
   margin: 0;
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  z-index: 9;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  z-index: 10;
 }
 
 #app {
@@ -62,10 +73,28 @@ li {
 .Page {
   min-height: 100vh;
   width: 100%;
-  position: relative;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.Page__inner {
+  position: relative;
+  width: 100%;
+  max-width: 840px;
+  margin: 0 auto;
+
+  @media (min-width: 562px) and (max-width: 973px) {
+    padding-left: 52px;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

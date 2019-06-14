@@ -54,10 +54,16 @@ export default {
 <style lang="scss">
 .Contact {
   position: relative;
+  background-color: whitesmoke;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
 
   .Page__inner {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    transform: translateY(-10%);
   }
 
   .online-sources {
@@ -89,6 +95,7 @@ export default {
   .online-logo {
     height: 48px;
     width: 48px;
+    background-color: white;
   }
 }
 </style>

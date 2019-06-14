@@ -55,6 +55,10 @@ html {
   color: #2c3e50;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1,
 h2 {
   font-weight: normal;
@@ -71,9 +75,8 @@ li {
 }
 
 .Page {
-  min-height: 100vh;
+  min-height: 105vh;
   width: 100%;
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

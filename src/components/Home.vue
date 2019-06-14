@@ -9,9 +9,9 @@
           <span class="extra">I'm &nbsp;</span>
         </h1>
         <h2 class="title">Web Developer</h2>
-        <button class="welcome-btn">
+        <a class="welcome-link" href="#about">
           <div class="welcome-msg">Get to Know Me</div>
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -70,8 +70,7 @@ export default {
       justify-content: flex-end;
     }
 
-    .welcome-btn {
-      @include clear_button_styles;
+    .welcome-link {
       background: black;
       color: white;
       margin-bottom: 12px;

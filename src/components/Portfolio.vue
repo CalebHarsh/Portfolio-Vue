@@ -4,22 +4,50 @@
       <h3>Flip through some of my past works</h3>
       <div class="book">
         <div class="page left">
-          <button v-show="showLeftArrow" @click="turnPage('right')" class="turn-page left">
+          <button v-show="showLeftArrow" @click="turnPage('left')" class="turn-page left">
             <i class="fas fa-arrow-left"></i>
           </button>
         </div>
         <div class="page right pageRight">
-          <button v-show="showRightArrow" @click="turnPage('left')" class="turn-page right">
+          <button v-show="showRightArrow" @click="turnPage('right')" class="turn-page right">
             <i class="fas fa-arrow-right"></i>
           </button>
         </div>
-        <div
-          v-show="showTurnPage"
-          class="page pageTurn"
-          v-bind:class="turnClass"
-        ></div>
+        <div v-show="showTurnPage" class="page pageTurn" v-bind:class="turnClass"></div>
         <transition name="fade">
-          <div v-show="!showTurnPage" class="book-content"></div>
+          <div v-if="!showTurnPage" class="book-content">
+            <div v-if="index === 0" class="page-1">
+              <h2>Index</h2>
+              <h3>Notable Works</h3>
+              <ul class="notable-works">
+                <li v-for="(work, index) in project.notable" v-bind:key="work" class="work">
+                  <a @click="changeIndex(index + 1)">{{ work }}</a>
+                </li>
+              </ul>
+            </div>
+            <div v-else class="page-1">
+              <a class="back" @click="changeIndex(0)">
+                <i class="fas fa-angle-double-left"></i>&nbsp;Back to Index
+              </a>
+              <h2>{{ project.title }}</h2>
+              <p>{{ project.info }}</p>
+            </div>
+            <div v-if="index === 0" class="page-2">
+              <h3>Projects and Other Works</h3>
+              <ul class="other-works">
+                <li v-for="(work, index) in project.others" v-bind:key="work" class="work">
+                  <a @click="changeIndex(index + project.notable.length + 1)">{{ work }}</a>
+                </li>
+              </ul>
+            </div>
+            <div v-else class="page-2">
+              <img v-bind:src="project.image" v-bind:alt="project.title">
+              <h3>Skils &amp; Technologies Used</h3>
+              <ul>
+                <li v-for="tech in project.techUsed" v-bind:key="tech" class="skills">{{ tech }}</li>
+              </ul>
+            </div>
+          </div>
         </transition>
       </div>
     </div>
@@ -27,6 +55,7 @@
 </template>
 
 <script>
+import { portfolio } from "../utils";
 export default {
   name: "Portfolio",
   data: () => {
@@ -34,29 +63,44 @@ export default {
       animateTurn: false,
       showTurnPage: false,
       turnDirection: "right",
-      index: 0
+      index: 0,
+      data: portfolio
     };
   },
   computed: {
     showLeftArrow: function() {
       return this.index !== 0 && !this.showTurnPage;
     },
-    showRightArrow: function () {
-      return !this.showTurnPage;
+    showRightArrow: function() {
+      return this.index < this.data.length - 1 && !this.showTurnPage;
     },
-    turnClass: function () {
-      return `${this.turnDirection} ${this.animateTurn && 'turn'}`
+    turnClass: function() {
+      return `${this.turnDirection} ${this.animateTurn && "turn"}`;
+    },
+    project: function() {
+      return this.data[this.index];
     }
   },
   methods: {
     turnPage: function(direction) {
       this.turnDirection = direction;
       this.showTurnPage = true;
-      if (direction === "left") {
+      if (direction === "right") {
         this.index++;
       } else {
         this.index--;
       }
+      setTimeout(() => (this.animateTurn = true), 17);
+      setTimeout(() => {
+        this.showTurnPage = false;
+        this.animateTurn = false;
+      }, 800);
+    },
+    changeIndex: function(index) {
+      if (index > this.index) this.turnDirection = "right";
+      else this.turnDirection = "left";
+      this.showTurnPage = true;
+      this.index = index;
       setTimeout(() => (this.animateTurn = true), 17);
       setTimeout(() => {
         this.showTurnPage = false;
@@ -71,6 +115,8 @@ export default {
 @import "../stylesheets/variables";
 
 .Portfolio {
+  background-image: url("../assets/images/wood_desk.jpg");
+
   .Page__inner {
     min-height: 100vh;
     display: flex;
@@ -86,9 +132,9 @@ export default {
   .book {
     display: inline-flex;
     position: relative;
-    border: 3px solid rgb(75, 30, 30);
+    border: 3px solid #5f1c1c;
     border-radius: 10px / 10px;
-    background-color: rgb(75, 30, 30);
+    background-color: #5f1c1c;
     width: calc(100% - 24px);
     margin: 0 12px;
     min-height: calc(90vh - 52px);
@@ -97,9 +143,8 @@ export default {
   .page {
     position: relative;
     width: 50%;
-    // height: 100%;
     border: 2px solid black;
-    background-color: white;
+    background-color: wheat;
 
     &.left {
       border-radius: 10px 25% 25% 10px / 10px 5% 2% 10px;
@@ -159,7 +204,62 @@ export default {
     left: 37px;
     right: 37px;
     bottom: 20px;
-    background-color: wheat;
+    display: flex;
+    flex-direction: row;
+
+    h2,
+    h3 {
+      text-align: left;
+    }
+
+    .back {
+      display: flex;
+      text-align: left;
+      color: 15px;
+      cursor: pointer;
+    }
+
+    .notable-works {
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+      padding-left: 10%;
+      text-align: left;
+
+      .work:not(:first-child) {
+        margin-top: 12px;
+      }
+    }
+
+    a {
+      cursor: pointer;
+    }
+
+    .other-works {
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+      text-align: 20px;
+      padding-left: 10%;
+      text-align: left;
+
+      .work:not(:first-child) {
+        margin-top: 15px;
+      }
+    }
+
+    .page-1 {
+      width: 50%;
+      padding: 0 24px 0 12px;
+      border-right: 1px solid black;
+    }
+
+    .page-2 {
+      width: 50%;
+      padding: 0 12px 0 24px;
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 </style>

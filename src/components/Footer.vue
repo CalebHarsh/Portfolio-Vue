@@ -1,6 +1,7 @@
 <template>
   <div class="Footer">
     <h6>Caleb Harshman &copy;2019</h6>
+    <h6>Made with Vue.js and Imagination</h6>
   </div>
 </template>
 

@@ -45,7 +45,7 @@
               </ul>
             </div>
             <div v-else class="page-2">
-              <img v-bind:src="project.image" v-bind:alt="project.title">
+              <img class="project-img" v-bind:src="project.image" v-bind:alt="project.title">
               <h3>Skils &amp; Technologies Used</h3>
               <ul>
                 <li v-for="tech in project.techUsed" v-bind:key="tech" class="skills">{{ tech }}</li>
@@ -244,6 +244,10 @@ export default {
       cursor: pointer;
     }
 
+    .project-img {
+      max-height: 245px;
+    }
+
     .other-works {
       display: flex;
       flex-direction: column;
@@ -261,6 +265,10 @@ export default {
       width: 50%;
       padding: 0 24px 0 12px;
       border-right: 1px solid black;
+
+      p {
+        text-align: left;
+      }
     }
 
     .page-2 {

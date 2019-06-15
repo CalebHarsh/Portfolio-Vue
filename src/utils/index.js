@@ -1,8 +1,8 @@
 const portfolioProjects = [
   {
     title: 'Gush',
-    info: "The things I've done for gush",
-    image: "../assets/images/",
+    info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis ut esse neque quae autem quos reiciendis dolor aspernatur modi error omnis earum ex culpa ea rerum, nostrum illum dolores.",
+    image: "https://picsum.photos/id/237/200/300",
     techUsed: [
       'React.js',
       'Redux.js',
@@ -36,8 +36,8 @@ const portfolioProjects = [
   },
   {
     title: 'ShowTracker App',
-    info: "The things I've done for gush",
-    image: "../assets/images/watchlist.png",
+    info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis ut esse neque quae autem quos reiciendis dolor aspernatur modi error omnis earum ex culpa ea rerum, nostrum illum dolores.",
+    image: "https://momento-139.s3.us-west-1.amazonaws.com/1560562734478.png",
     techUsed: [
       'CSS3',
       'HTML5',
@@ -53,8 +53,8 @@ const portfolioProjects = [
   },
   {
     title: 'Trivia Game',
-    info: "The things I've done for gush",
-    image: "../assets/images/Trivia.png",
+    info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis ut esse neque quae autem quos reiciendis dolor aspernatur modi error omnis earum ex culpa ea rerum, nostrum illum dolores.",
+    image: "https://momento-139.s3.us-west-1.amazonaws.com/1560562969760.png",
     techUsed: [
       'Javascript',
       'jQuery',
@@ -67,7 +67,7 @@ const portfolioProjects = [
   },
   {
     title: 'PolitVue',
-    info: "The things I've done for gush",
+    info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis ut esse neque quae autem quos reiciendis dolor aspernatur modi error omnis earum ex culpa ea rerum, nostrum illum dolores.",
     image: "gushImage",
     techUsed: [
       'Javascript',
@@ -85,8 +85,8 @@ const portfolioProjects = [
   },
   {
     title: 'Event Planner',
-    info: "The things I've done for gush",
-    image: "../assets/images/Event_Planner.png",
+    info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis ut esse neque quae autem quos reiciendis dolor aspernatur modi error omnis earum ex culpa ea rerum, nostrum illum dolores.",
+    image: "https://momento-139.s3.us-west-1.amazonaws.com/1560562929210.png",
     techUsed: [
       'Javascript',
       'jQuery',
@@ -99,8 +99,8 @@ const portfolioProjects = [
   },
   {
     title: 'Hangman',
-    info: "The things I've done for gush",
-    image: "../assets/images/Hangman.png",
+    info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis ut esse neque quae autem quos reiciendis dolor aspernatur modi error omnis earum ex culpa ea rerum, nostrum illum dolores.",
+    image: "https://momento-139.s3.us-west-1.amazonaws.com/1560563009617.png",
     techUsed: [
       'Javascipt',
       'CSS',
@@ -111,8 +111,8 @@ const portfolioProjects = [
   },
   {
     title: 'Avengers Vs. Guardians',
-    info: "The things I've done for gush",
-    image: "../assets/images/RPG.png",
+    info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis ut esse neque quae autem quos reiciendis dolor aspernatur modi error omnis earum ex culpa ea rerum, nostrum illum dolores.",
+    image: "https://momento-139.s3.us-west-1.amazonaws.com/1560562946599.png",
     techUsed: [
       'Javascript',
       'CSS',
@@ -124,8 +124,8 @@ const portfolioProjects = [
   },
   {
     title: 'Giphy Search',
-    info: "The things I've done for gush",
-    image: "../assets/images/gifs.png",
+    info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis ut esse neque quae autem quos reiciendis dolor aspernatur modi error omnis earum ex culpa ea rerum, nostrum illum dolores.",
+    image: "https://momento-139.s3.us-west-1.amazonaws.com/1560563022726.png",
     techUsed: [
       'Bootstrap',
       'jQuery',
@@ -138,8 +138,8 @@ const portfolioProjects = [
   },
   {
     title: 'Friend Finder',
-    info: "The things I've done for gush",
-    image: "../assets/images/FriendFinder.png",
+    info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis ut esse neque quae autem quos reiciendis dolor aspernatur modi error omnis earum ex culpa ea rerum, nostrum illum dolores.",
+    image: "https://momento-139.s3.us-west-1.amazonaws.com/1560562908187.png",
     techUsed: [
       'Bootstrap',
       'Node.js',
@@ -151,8 +151,8 @@ const portfolioProjects = [
   },
   {
     title: 'Hangman Terminal',
-    info: "The things I've done for gush",
-    image: "../assets/images/hangman-node-app.png",
+    info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis ut esse neque quae autem quos reiciendis dolor aspernatur modi error omnis earum ex culpa ea rerum, nostrum illum dolores.",
+    image: "https://momento-139.s3.us-west-1.amazonaws.com/1560563052098.png",
     techUsed: [
       'Node.js',
       'Express.js',
@@ -162,9 +162,9 @@ const portfolioProjects = [
     notable: false
   },
   {
-    title: 'Liri',
-    info: "The things I've done for gush",
-    image: "../assets/images/liri-node-app.png",
+    title: 'LIRI',
+    info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis ut esse neque quae autem quos reiciendis dolor aspernatur modi error omnis earum ex culpa ea rerum, nostrum illum dolores.",
+    image: "https://momento-139.s3.us-west-1.amazonaws.com/1560562987789.png",
     techUsed: [
       'Node.js',
       'Express.js',

@@ -1,7 +1,7 @@
 <template>
   <div id="portfolio" class="Page Portfolio">
     <div class="Page__inner">
-      <h3>Flip through some of my past works</h3>
+      <h2 class="title">Flip through some of my past works</h2>
       <div class="book">
         <div class="page left">
           <button v-show="showLeftArrow" @click="turnPage('left')" class="turn-page left">
@@ -29,8 +29,12 @@
               <a class="back" @click="changeIndex(0)">
                 <i class="fas fa-angle-double-left"></i>&nbsp;Back to Index
               </a>
-              <h2>{{ project.title }}</h2>
+              <h2>Project Name: {{ project.title }}</h2>
               <p>{{ project.info }}</p>
+              <p>
+                Check it out:&nbsp;
+                <a v-bind:href="project.link" target="_blank">{{ project.link }}</a>
+              </p>
             </div>
             <div v-if="index === 0" class="page-2">
               <h3>Projects and Other Works</h3>
@@ -127,6 +131,11 @@ export default {
     @media (max-width: 562px) {
       justify-content: flex-start;
     }
+  }
+
+  .title {
+    color: white;
+    text-shadow: 1px 1px black;
   }
 
   .book {

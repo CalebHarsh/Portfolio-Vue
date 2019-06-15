@@ -1,26 +1,19 @@
-export const portfolio =  [
+const portfolioProjects = [
   {
-    notable: [
-      "Gush",
-      "momento",
-      "ShowTracker App",
-      "Trivia Game",
-      "Poltivue"
-    ],
-    others: ["Event Planner", "Hangman", "Avengers Vs. Guardians", "Liri"]
-  }, {
     title: 'Gush',
     info: "The things I've done for gush",
-    image: "gushImage",
+    image: "../assets/images/",
     techUsed: [
       'React.js',
       'Redux.js',
       'SCSS',
       'JavaScript',
       'SEO',
-      'JIRI',
+      'JIRA',
       'GIT'
-    ]
+    ],
+    link: 'https://gush.com',
+    notable: true
   },
   {
     title: 'momento',
@@ -37,107 +30,160 @@ export const portfolio =  [
       'Express.js',
       'Node.js',
       'S3 Bucket'
-    ]
+    ],
+    link: 'https://momento-sp.herokuapp.com/',
+    notable: true,
   },
   {
     title: 'ShowTracker App',
     info: "The things I've done for gush",
-    image: "gushImage",
+    image: "../assets/images/watchlist.png",
     techUsed: [
-      'React.js',
-      'Redux.js',
-      'SCSS',
+      'CSS3',
+      'HTML5',
       'JavaScript',
-      'SEO',
-      'JIRI',
-      'GIT'
-    ]
+      'Firebase',
+      'Bootstrap',
+      'Heroku',
+      'Node.js',
+      'Express.js'
+    ],
+    link: 'https://calebharsh.github.io/ShowTracker-App/',
+    notable: true
   },
   {
     title: 'Trivia Game',
     info: "The things I've done for gush",
-    image: "gushImage",
+    image: "../assets/images/Trivia.png",
     techUsed: [
-      'React.js',
-      'Redux.js',
-      'SCSS',
-      'JavaScript',
-      'SEO',
-      'JIRI',
-      'GIT'
-    ]
+      'Javascript',
+      'jQuery',
+      'HTML',
+      'Bootstrap',
+      'Firebase'
+    ],
+    link: 'https://calebharsh.github.io/Trivia-game/advance/',
+    notable: true,
   },
   {
     title: 'PolitVue',
     info: "The things I've done for gush",
     image: "gushImage",
     techUsed: [
-      'React.js',
-      'Redux.js',
-      'SCSS',
-      'JavaScript',
-      'SEO',
-      'JIRI',
-      'GIT'
-    ]
+      'Javascript',
+      'SASS',
+      'HTML',
+      'Vue.js',
+      'Google API',
+      'Node.js',
+      'Express.js',
+      'MySQL',
+      'Sequelize'
+    ],
+    link: 'https://politivue.herokuapp.com/',
+    notable: true
   },
   {
     title: 'Event Planner',
     info: "The things I've done for gush",
-    image: "gushImage",
+    image: "../assets/images/Event_Planner.png",
     techUsed: [
-      'React.js',
-      'Redux.js',
-      'SCSS',
-      'JavaScript',
-      'SEO',
-      'JIRI',
-      'GIT'
-    ]
+      'Javascript',
+      'jQuery',
+      'CSS',
+      'HTML',
+      'Bootstrap'
+    ],
+    link: 'https://event-planner-54834.firebaseapp.com',
+    notable: false
   },
   {
     title: 'Hangman',
     info: "The things I've done for gush",
-    image: "gushImage",
+    image: "../assets/images/Hangman.png",
     techUsed: [
-      'React.js',
-      'Redux.js',
-      'SCSS',
-      'JavaScript',
-      'SEO',
-      'JIRI',
-      'GIT'
-    ]
+      'Javascipt',
+      'CSS',
+      'HTML'
+    ],
+    link: 'https://calebharsh.github.io/Hangman-Game',
+    notable: false
   },
   {
     title: 'Avengers Vs. Guardians',
     info: "The things I've done for gush",
-    image: "gushImage",
+    image: "../assets/images/RPG.png",
     techUsed: [
-      'React.js',
-      'Redux.js',
-      'SCSS',
-      'JavaScript',
-      'SEO',
-      'JIRI',
-      'GIT'
-    ]
+      'Javascript',
+      'CSS',
+      'HTML',
+      'jQuery'
+    ],
+    link: 'https://calebharsh.github.io/Games/RPG-game',
+    notable: false
+  },
+  {
+    title: 'Giphy Search',
+    info: "The things I've done for gush",
+    image: "../assets/images/gifs.png",
+    techUsed: [
+      'Bootstrap',
+      'jQuery',
+      'Javascript',
+      'HTML',
+      'AJAX'
+    ],
+    link: 'https://calebharsh.github.io/API-Website',
+    notable: false
+  },
+  {
+    title: 'Friend Finder',
+    info: "The things I've done for gush",
+    image: "../assets/images/FriendFinder.png",
+    techUsed: [
+      'Bootstrap',
+      'Node.js',
+      'Express.js',
+      'Javascript'
+    ],
+    link: 'https://stark-thicket-46163.herokuapp.com',
+    notable: false
+  },
+  {
+    title: 'Hangman Terminal',
+    info: "The things I've done for gush",
+    image: "../assets/images/hangman-node-app.png",
+    techUsed: [
+      'Node.js',
+      'Express.js',
+      'Javascript'
+    ],
+    link: 'https://github.com/CalebHarsh/hangman-app',
+    notable: false
   },
   {
     title: 'Liri',
     info: "The things I've done for gush",
-    image: "gushImage",
+    image: "../assets/images/liri-node-app.png",
     techUsed: [
-      'React.js',
-      'Redux.js',
-      'SCSS',
-      'JavaScript',
-      'SEO',
-      'JIRI',
-      'GIT'
-    ]
+      'Node.js',
+      'Express.js',
+      'Javascript'
+    ],
+    link: 'https://github.com/CalebHarsh/liri-node-app',
+    notable: false
   }
+  
 ];
+
+export const portfolio = [portfolioProjects.reduce((accum, curr) => {
+  if (curr.notable) accum.notable.push(curr.title);
+  else accum.others.push(curr.title);
+  return accum;
+}, {
+    notable: [],
+    others: []
+  }), ...portfolioProjects];
 
 export const about = `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis ut esse neque quae autem quos reiciendis dolor aspernatur modi error omnis earum ex culpa ea rerum, nostrum illum dolores.
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis ut esse neque quae autem quos reiciendis dolor aspernatur modi error omnis earum ex culpa ea rerum, nostrum illum dolores.
@@ -149,12 +195,14 @@ export const skills = [
   'CSS3',
   'HTML5',
   'JSON',
+  'jQuery',
   'MERN Stack',
   'CSS Animation',
   'Bootstrap',
   'Materialize',
   'Ant Design',
   'React.js',
+  'Redux',
   'Express.js',
   'Node.js',
   'Vue.js',
@@ -170,4 +218,4 @@ export const skills = [
   'C#',
   'C',
   'Ladder Logic'
-]
+];

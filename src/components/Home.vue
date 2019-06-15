@@ -2,7 +2,7 @@
   <div id="home" class="Page Home">
     <div class="Page__inner">
       <div class="welcome-container">
-        <h3 class="welcome">Hello, Welcome...</h3>
+        <h2 class="welcome">Hello, Welcome...</h2>
         <h1 class="name">
           <span>I'm &nbsp;</span>
           Caleb Harshman
@@ -42,20 +42,26 @@ export default {
   }
 
   .welcome-container {
-    transform: translateX(4px);
     padding: 0 24px;
     letter-spacing: 1px;
-    border: solid 4px black;
-    background: white;
 
     .welcome {
       display: flex;
       justify-content: flex-start;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px black;
+      font-size: 32px;
     }
 
     .name {
       display: flex;
       align-items: flex-start;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px black;
+      font-size: 48px;
+
       span {
         font-size: 24px;
 
@@ -68,13 +74,18 @@ export default {
     .title {
       display: flex;
       justify-content: flex-end;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px black;
+      font-size: 32px;
     }
 
     .welcome-link {
       background: black;
       color: white;
       margin-bottom: 12px;
-      padding: 8px;
+      padding: 8px 14px;
+
       display: inline-flex;
       
       &:hover {
@@ -83,10 +94,11 @@ export default {
     }
 
     .welcome-msg {
-      transition: transform 300ms ease-in-out;
+      font-size: 24px;
+      transition: transform 100ms ease-in-out;
 
       &:active {
-        transform: scale(0.5);
+        transform: scale(0.7);
       }
     }
   }

@@ -15,7 +15,7 @@
           </h3>
         </div>
         <div class="online-sources">
-          <h3>See More Here</h3>&nbsp;
+          <h3>Connect and Learn More About Me</h3>&nbsp;
           <a class="source" href="https://github.com/CalebHarsh" target="_blank">
             <img class="online-logo" src="../assets/images/git_hub_logo1.png" alt="GitHub"> &nbsp;GitHub
           </a>
@@ -90,6 +90,8 @@ export default {
   .source {
     display: flex;
     align-items: center;
+    margin-bottom: 12px;
+    margin-left: 12px;
   }
 
   .online-logo {

@@ -397,7 +397,6 @@ export default {
     .index-page {
       .notable-works,
       .other-works {
-        flex-direction: row;
         flex-wrap: wrap;
       }
 
@@ -409,7 +408,8 @@ export default {
 
     .page-note {
       padding-top: 2.5vh;
-
+      width: 100%;
+      
       .project-img {
         width: 45%;
         margin-right: 2px;

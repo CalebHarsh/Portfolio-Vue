@@ -73,6 +73,7 @@ export default {
 
   .title {
     text-align: left;
+    padding-left: 24px;
   }
 
   .contact-sheet,

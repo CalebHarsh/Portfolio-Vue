@@ -48,6 +48,11 @@ export default {
     display: flex;
     flex-direction: row;
 
+    @media (max-width: 562px) {
+      flex-direction: column-reverse;
+
+    }
+
     h2,
     p {
       display: inline-flex;

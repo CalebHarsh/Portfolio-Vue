@@ -2,7 +2,62 @@
   <div id="portfolio" class="Page Portfolio">
     <div class="Page__inner">
       <h2 class="title">Flip through some of my past works</h2>
-      <div class="book">
+
+      <div v-show="smallScreen" class="notepad">
+        <div class="spiral">
+          <div v-for="n in 10" v-bind:key="n" class="loop"></div>
+        </div>
+        <div class="notepage">
+          <button v-show="showLeftArrow" @click="turnPage('left')" class="turn-page left">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <button v-show="showRightArrow" @click="turnPage('right')" class="turn-page right">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+        <div v-show="showTurnPage" v-bind:class="turnClass" class="notepage turnPage"></div>
+        <transition name="fade">
+          <div v-if="!showTurnPage" class="notepad-content">
+            <div v-if="index === 0" class="index-page">
+              <h2>Index</h2>
+              <h3>Notable Works</h3>
+              <ul class="notable-works">
+                <li v-for="(work, index) in project.notable" v-bind:key="work" class="work">
+                  <a @click="changeIndex(index + 1)">{{ work }}</a>
+                </li>
+              </ul>
+              <h3>Projects and Other Works</h3>
+              <ul class="other-works">
+                <li v-for="(work, index) in project.others" v-bind:key="work" class="work">
+                  <a @click="changeIndex(index + project.notable.length + 1)">{{ work }}</a>
+                </li>
+              </ul>
+            </div>
+            <div v-else class="page-note">
+              <a class="back" @click="changeIndex(0)">
+                <i class="fas fa-angle-double-left"></i>&nbsp;Back to Index
+              </a>
+              <h2>
+                <a v-bind:href="project.link" target="_blank">
+                  <img class="project-img" v-bind:src="project.image" v-bind:alt="project.title">
+                </a>
+                Project: {{ project.title }}
+              </h2>
+              <p>{{ project.info }}</p>
+              <h3>Skils &amp; Technologies Used</h3>
+              <ul>
+                <li v-for="tech in project.techUsed" v-bind:key="tech" class="skills">{{ tech }}</li>
+              </ul>
+              <p>
+                Check it out:&nbsp;
+                <a v-bind:href="project.link" target="_blank">{{ project.link }}</a>
+              </p>
+            </div>
+          </div>
+        </transition>
+      </div>
+
+      <div v-show="!smallScreen" class="book">
         <div class="page left">
           <button v-show="showLeftArrow" @click="turnPage('left')" class="turn-page left">
             <i class="fas fa-arrow-left"></i>
@@ -83,9 +138,15 @@ export default {
     },
     project: function() {
       return this.data[this.index];
+    },
+    smallScreen: function() {
+      return this.checkScreenSize();
     }
   },
   methods: {
+    checkScreenSize: function() {
+      return document.body.offsetWidth <= 562;
+    },
     turnPage: function(direction) {
       this.turnDirection = direction;
       this.showTurnPage = true;
@@ -95,10 +156,13 @@ export default {
         this.index--;
       }
       setTimeout(() => (this.animateTurn = true), 17);
-      setTimeout(() => {
-        this.showTurnPage = false;
-        this.animateTurn = false;
-      }, 800);
+      setTimeout(
+        () => {
+          this.showTurnPage = false;
+          this.animateTurn = false;
+        },
+        this.smallScreen ? 1200 : 800
+      );
     },
     changeIndex: function(index) {
       if (index > this.index) this.turnDirection = "right";
@@ -106,10 +170,13 @@ export default {
       this.showTurnPage = true;
       this.index = index;
       setTimeout(() => (this.animateTurn = true), 17);
-      setTimeout(() => {
-        this.showTurnPage = false;
-        this.animateTurn = false;
-      }, 800);
+      setTimeout(
+        () => {
+          this.showTurnPage = false;
+          this.animateTurn = false;
+        },
+        this.smallScreen ? 1200 : 800
+      );
     }
   }
 };
@@ -138,7 +205,8 @@ export default {
     text-shadow: 1px 1px black;
   }
 
-  .book {
+  .book,
+  .notepad {
     display: inline-flex;
     position: relative;
     border: 3px solid #5f1c1c;
@@ -147,6 +215,53 @@ export default {
     width: calc(100% - 24px);
     margin: 0 12px;
     min-height: calc(90vh - 52px);
+  }
+
+  .notepad {
+    flex-direction: column;
+
+    .notepage {
+      width: 100%;
+      background-color: wheat;
+      position: absolute;
+      top: 2.5vh;
+      bottom: 0;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid black;
+
+      &.turnPage {
+        transform-origin: top center;
+        transition: transform 700ms ease-in-out 200ms;
+
+        &.right {
+          &.turn {
+            transform: rotateX(180deg) scaleY(0);
+          }
+        }
+
+        &.left {
+          transform: rotateX(180deg) scaleY(0);
+          &.turn {
+            transform: none;
+          }
+        }
+      }
+    }
+  }
+
+  .spiral {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 5vh;
+    margin-bottom: -10px;
+    z-index: 12;
+
+    .loop {
+      border: 1px solid black;
+    }
   }
 
   .page {
@@ -207,7 +322,8 @@ export default {
     }
   }
 
-  .book-content {
+  .book-content,
+  .notepad-content {
     position: absolute;
     top: 35px;
     left: 37px;
@@ -276,6 +392,34 @@ export default {
       padding: 0 12px 0 24px;
       display: flex;
       flex-direction: column;
+    }
+
+    .index-page {
+      .notable-works,
+      .other-works {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .work {
+        margin-top: 0px !important;
+        margin-bottom: 3px;
+      }
+    }
+
+    .page-note {
+      padding-top: 2.5vh;
+
+      .project-img {
+        width: 45%;
+        margin-right: 2px;
+        float: left;
+        cursor: pointer;
+      }
+
+      p {
+        text-align: left;
+      }
     }
   }
 }

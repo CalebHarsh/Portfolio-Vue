@@ -4,13 +4,11 @@
       <div class="welcome-container">
         <h2 class="welcome">Hello, Welcome...</h2>
         <h1 class="name">
-          <span>I'm &nbsp;</span>
           Caleb Harshman
-          <span class="extra">I'm &nbsp;</span>
         </h1>
         <h2 class="title">Web Developer</h2>
         <a class="welcome-link" href="#about">
-          <div class="welcome-msg">Get to Know Me</div>
+          <div class="welcome-msg">Learn More About Me</div>
         </a>
       </div>
     </div>
@@ -56,7 +54,7 @@ export default {
 
     .name {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       font-weight: bold;
       color: white;
       text-shadow: 2px 2px black;

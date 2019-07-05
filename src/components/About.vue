@@ -8,7 +8,7 @@
         </div>
         <img
           class="profile-pic"
-          src="http://via.placeholder.com/240x360"
+          src="../assets/images/Semi-Casual.jpg"
           alt="Caleb Harshman Profile Pic"
         >
       </div>
@@ -42,15 +42,20 @@ export default {
   .Page__inner {
     min-height: 100vh;
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .aboutMe {
     display: flex;
     flex-direction: row;
+    margin-left: 36px;
 
-    @media (max-width: 562px) {
+    @media (max-width: 763px) {
       flex-direction: column-reverse;
-
+      align-items: center;
     }
 
     h2,
@@ -63,12 +68,18 @@ export default {
     }
   }
 
+  .skills {
+    margin-left: 36px;
+  }
+
   .profile-pic {
     float: right;
     display: block;
     border-radius: 50%;
     transition: transform 300ms ease-in-out;
     margin: 0 0 10px 12px;
+    max-width: 35%;
+    max-height: 277px;
   }
 }
 </style>

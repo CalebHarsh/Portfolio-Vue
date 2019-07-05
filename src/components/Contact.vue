@@ -11,7 +11,7 @@
           </h4>
           <h3>
             Take a resume:
-            <a v-bind:href="`../assets/${resume}`" download="Caleb Harshman">Resume</a>
+            <a href="`../assets/Caleb_Harshman_Front_End.pdf`" download="Caleb Harshman">Resume</a>
           </h3>
         </div>
         <div class="online-sources">

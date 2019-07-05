@@ -2,7 +2,7 @@
   <div id="home" class="Page Home">
     <div class="Page__inner">
       <div class="welcome-container">
-        <h2 class="welcome">Hello, Welcome...</h2>
+        <h2 class="welcome">Hello, Welcome! I'm...</h2>
         <h1 class="name">
           Caleb Harshman
         </h1>

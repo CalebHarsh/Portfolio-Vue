@@ -361,7 +361,7 @@ export default {
     }
 
     .project-img {
-      max-height: 245px;
+      max-height: 200px;
     }
 
     .other-works {

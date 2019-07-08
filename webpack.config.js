@@ -62,14 +62,12 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|svg|pdf)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]?[hash]'
-            }
-          }
-        ]
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]?[hash]',
+          outputPath: 'assets/',
+          publicPath: 'assets/'
+        }
       }
     ]
   },
@@ -80,6 +78,9 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json']
   },
   devServer: {
+    contentBase: [__dirname, path.join(__dirname, 'dist')],
+    index: 'index.html',
+    port: 3030,
     historyApiFallback: true,
     noInfo: true,
     overlay: true
